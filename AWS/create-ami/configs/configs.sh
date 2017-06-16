@@ -1,9 +1,11 @@
 #!/bin/bash
 
-CONFIG_DIR=/home/dhop/aws_terraform/configs/
-CONFIG_BK_DIR=/home/dhop/aws_terraform/configs/.backup/
-CONFIG_FILE=terraform.tfvars
+## path to configs
+CONFIG_DIR=/path/to/configs/
+CONFIG_BK_DIR=/path/to/configs/.backup/
+CONFIG_FILE=config.file
 
-OWNER_ID=876138579135
-NAMETAG="【production】appoi-web05"
-AMINAME="appoi-web05-image-"
+## consts
+OWNER_ID=123456789
+NAMETAG="NAMETAG"
+AMINAME="AMINAME-"
