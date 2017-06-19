@@ -2,10 +2,6 @@
 
 set -eu
 
-BASE_DIR=$(cd $(dirname $0) && pwd)
-
-source $BASE_DIR/configs/configs.sh
-
 TODAY=`date '+%Y%m%d'`
 instance_ids=""
 instance_names=""
