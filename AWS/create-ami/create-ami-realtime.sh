@@ -13,7 +13,7 @@ j=0
 instance_ids=`aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag-key,Values=Name" --query "Reservations[].Instances[].InstanceId" --output text`
 
 ## get instance_Name (only status is 'running' and tag-key=Name)
-instance_names=`aws ec2 describe-instances --instance-ids ${instance_ids} --filters "Name=tag-key,Values=Name" --query "Reservations[].Instances[].Tags[].Value" --output text`
+instance_names=`aws ec2 describe-instances --instance-ids ${instance_ids} --query "Reservations[].Instances[].Tags[].Value" --output text`
 
 source_ids=($instance_ids)
 source_names=($instance_names)
@@ -27,6 +27,8 @@ do
 
   ### put tags to ami
   aws ec2 create-tags --resources ${ami_id} --tags Key=Name,Value="${source_names[$j]}-${TODAY}"
+
+  ## count up
   j=$((j+1))
 done
 
